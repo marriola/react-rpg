@@ -1,7 +1,9 @@
 import React from 'react';
 import BaseComponent from '../BaseComponent';
 import { numberChildren } from '../../../util';
+import autobind from 'autobind-decorator';
 
+@autobind
 export default class RadioGroup extends BaseComponent {
     constructor(props) {
         super(props);
@@ -12,8 +14,8 @@ export default class RadioGroup extends BaseComponent {
     }
 
     check(id) {
-        if (this.props.onChange) {
-            this.props.onChange(id);
+        if (this.props.__set) {
+            this.props.__set(this.props.__name, id);
         }
 
         this.setState({ checked: id });
@@ -31,7 +33,7 @@ export default class RadioGroup extends BaseComponent {
         children = React.Children.map(children, elt =>
             React.cloneElement(elt, {
                 ...elt.props,
-                check: this.check.bind(this, elt.props.id),
+                check: this.check,
                 selected: elt.props.id == checked
             }));
 

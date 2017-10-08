@@ -1,14 +1,14 @@
 import React from 'react';
 import BaseComponent from './BaseComponent';
 import AC from '../../action-creators';
+import autobind from 'autobind-decorator';
 
+@autobind
 export default class Screen extends BaseComponent {
     constructor(props, name) {
         super(props);
 
         this.name = `screens.${name}`;
-
-        this.changeHandlers = {};
     }
 
     // Sets the value of a screen property
@@ -27,20 +27,9 @@ export default class Screen extends BaseComponent {
     // name         The name of the screen property
     // valueProp    The name of the prop on the element that sets its value
     bindTo(name, valueProp) {
-        let handler;
-        
-        if (!this.changeHandlers[name]) {
-            handler = this.set.bind(this, name);
-            this.changeHandlers = {
-                ...this.changeHandlers,
-                [name]: handler
-            };
-        } else {
-            handler = this.changeHandlers[name];
-        }
-
         return {
-            onChange: handler,
+            __name: name,
+            __set: this.set,
             [valueProp]: this.get(name)
         };
     }
@@ -49,9 +38,9 @@ export default class Screen extends BaseComponent {
     // allowing them to be passed to child components.
     pass() {
         return {
-            get: this.get.bind(this),
-            set: this.set.bind(this),
-            bindTo: this.bindTo.bind(this)
+            get: this.get,
+            set: this.set,
+            bindTo: this.bindTo
         };
     }
 }

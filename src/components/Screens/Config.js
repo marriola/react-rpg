@@ -43,6 +43,8 @@ export default class Config extends Screen {
                     </RadioGroup>
                 </Layouts.HLayout>
                 <br/>
+                <Textbox {...this.bindTo('number', 'value')} type="number" />
+                <br/>
                 <Item route="/">Exit</Item>
             </Layouts.VBox>
         );

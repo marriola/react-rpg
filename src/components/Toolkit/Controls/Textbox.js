@@ -16,8 +16,8 @@ export default class Textbox extends BaseComponent {
     }
 
     handleChange(e) {
-        if (this.props.onChange) {
-            this.props.onChange(e.target.value);
+        if (this.props.__set) {
+            this.props.__set(this.props.__name, e.target.value);
         }
 
         this.setState({ value: e.target.value });
@@ -29,7 +29,7 @@ export default class Textbox extends BaseComponent {
         switch (type) {
             case 'multiline':
                 return super.render(
-                    <textarea style={style} rows={rows} cols={cols} onChange={this.handleChange}>{this.state.value}</textarea>
+                    <textarea style={style} rows={rows} cols={cols} onChange={this.handleChange} value={this.state.value}></textarea>
                 );
 
             case 'number':

@@ -37,7 +37,7 @@ export default class Item extends BaseComponent {
         console.log('clicked', id);
         
         if (this.props.check) {
-            this.props.check();
+            this.props.check(id);
         }
 
         if (!popup) {

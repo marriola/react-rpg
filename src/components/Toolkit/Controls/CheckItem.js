@@ -23,8 +23,8 @@ export default class CheckItem extends BaseComponent {
 
     onChange() {
         window.requestAnimationFrame(() => {
-            if (this.props.onChange) {
-                this.props.onChange(this.state.checked);
+            if (this.props.__set) {
+                this.props.__set(this.props.__name, this.state.checked);
             }
         });
     }
