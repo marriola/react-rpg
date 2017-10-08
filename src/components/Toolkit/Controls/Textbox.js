@@ -24,22 +24,25 @@ export default class Textbox extends BaseComponent {
     }
 
     render() {
-        let { type, min, max, rows, cols, width, style } = this.props;
+        let {
+            type, min, max, rows, cols, width, style,
+            defaultValue = ''
+        } = this.props;
 
         switch (type) {
             case 'multiline':
                 return super.render(
-                    <textarea style={style} rows={rows} cols={cols} onChange={this.handleChange} value={this.state.value}></textarea>
+                    <textarea style={style} rows={rows} cols={cols} onChange={this.handleChange} value={this.state.value || defaultValue}></textarea>
                 );
 
             case 'number':
                 return super.render(
-                    <input style={style} type="number" min={min} max={max} value={this.state.value} onChange={this.handleChange} />
+                    <input style={style} type="number" min={min} max={max} onChange={this.handleChange} value={this.state.value || defaultValue} />
                 );
             
             default:
                 return super.render(
-                    <input style={style} type="text" value={this.state.value} onChange={this.handleChange} />
+                    <input style={style} type="text" value={this.state.value || defaultValue} onChange={this.handleChange} />
                 );
         }
     }
