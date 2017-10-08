@@ -1,0 +1,46 @@
+.item {
+    cursor: pointer;
+    display: flex;
+    /* flex: 1 1; */
+    padding-left: 21px;
+}
+
+/* .item.selected,
+.item:hover {
+    margin-left: 0px;
+} */
+
+.item.selected::before,
+.item:hover::before {
+    content: '';
+    position: relative;
+    margin-right: -16px;
+    margin-top: auto;
+    margin-bottom: auto;
+    left: -19px;
+    width: 16px;
+    height: 17px;
+    background: url('~/Images/pointer.png') 16px 17px;
+}
+
+.layout a,
+.item a {
+    color: #ccc;
+    text-decoration-skip: ink;
+}
+
+.layout a.route,
+.item a.route {
+    text-decoration: none;
+}
+
+.item a:active,
+.item a:active .layout {
+    color: #006 !important;
+}
+
+.item.pressed, .item.pressed .layout,
+.item:active, .item:active .layout {
+    background-color: #ccc;
+    color: #006 !important;
+}
