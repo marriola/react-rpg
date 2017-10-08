@@ -83,8 +83,8 @@ export default class Shop extends Screen {
                 <Wizard.Step>
                     <Layouts.HBox name={Screens.Buy}>
                         <Layouts.VLayout style={{ width: "50%" }}>
-                            {this.items.map(item =>
-                                <Item onClick={() => this.selectItem(item)}>
+                            {this.items.map((item, i) =>
+                                <Item key={'shopi' + i} onClick={() => this.selectItem(item)}>
                                     {item.name}
                                 </Item>
                             )}
