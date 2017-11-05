@@ -12,7 +12,7 @@ import { range } from '../../util';
 
 @connect('storage')
 @autobind
-export default class Config extends Screen {
+export default class ConfigScreen extends Screen {
     constructor(props) {
         super(props, 'config');
     }

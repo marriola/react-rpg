@@ -8,7 +8,7 @@ import { getStore } from '../../../index';
 import { isPopup } from '../Layouts';
 import { numberChildren } from '../../../util';
 
-import './Item.css';
+import './Item.scss';
 
 @connect('ui')
 @autobind

@@ -3,8 +3,9 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Viewport from './Toolkit/Viewport';
 import MainMenu from './Screens/MainMenu';
-import Shop from './Screens/Shop';
-import Config from './Screens/Config';
+import ShopScreen from './Screens/Shop';
+import ConfigScreen from './Screens/Config';
+import BattleScreen from './Screens/Battle';
 
 export default class App extends React.Component {
     render() {
@@ -13,9 +14,10 @@ export default class App extends React.Component {
                 <BrowserRouter>
                     <Viewport>
                         <Switch>
-                            <Route exact path="/" component={MainMenu.Menu} />
-                            <Route path="/shop" component={Shop} />
-                            <Route path="/config" component={Config} />
+                            <Route exact path="/" component={MainMenu.MenuScreen} />
+                            <Route path="/shop" component={ShopScreen} />
+                            <Route path="/config" component={ConfigScreen} />
+                            <Route path="/battle" component={BattleScreen} />
                         </Switch>
                     </Viewport>
                 </BrowserRouter>

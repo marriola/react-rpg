@@ -1,0 +1,42 @@
+@import '../Colors.scss';
+
+.item {
+    cursor: pointer;
+    display: flex;
+    /* flex: 1 1; */
+    padding-left: 21px;
+    color: $text-color;
+
+    /* Item hover/select indicator */
+    &.selected::before,
+    &:hover::before {
+        content: '';
+        position: relative;
+        margin-right: -16px;
+        margin-top: auto;
+        margin-bottom: auto;
+        left: -19px;
+        width: 16px;
+        height: 17px;
+        background: url('~/Images/pointer.png') 16px 17px;
+    }
+
+    &.pressed, &.pressed .layout,
+    &:active, &:active .layout {
+        background-color: $text-color;
+        color: $background-color !important;
+    }
+
+    a {
+        color: $text-color;
+        text-decoration-skip: ink;
+    
+        &.route {
+            text-decoration: none;
+        }
+    
+        &:active, &:active .layout {
+            color: $background-color !important;
+        }
+    }
+}

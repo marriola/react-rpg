@@ -3,7 +3,7 @@ import BaseComponent from '../BaseComponent';
 import { connect } from '../../../decorators';
 import autobind from 'autobind-decorator';
 
-import './Textbox.css';
+import './Textbox.scss';
 
 @autobind
 export default class Textbox extends BaseComponent {

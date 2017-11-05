@@ -17,7 +17,7 @@ const Screens = {
 
 @connect('storage')
 @autobind
-export default class Shop extends Screen {
+export default class ShopScreen extends Screen {
     constructor(props) {
         super(props, 'screen');
 

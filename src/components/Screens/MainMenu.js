@@ -128,7 +128,7 @@ const MainMenu = {
         }
     },
 
-    Menu: Menu
+    MenuScreen: Menu
 };
 
 export default MainMenu;

@@ -1,0 +1,83 @@
+@import './Colors.scss';
+
+@font-face {
+    font-family: 'ChicagoFLF';
+    src: url('~/Fonts/ChicagoFLFRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.no-mouse {
+    pointer-events: none;
+}
+
+.sprite {
+    display: inline-block;
+    image-rendering: pixelated;
+}
+
+.box, .popup, .layout {
+    cursor: default;
+    display: flex;
+    align-items: flex-start;
+    font-family: ChicagoFLF;
+    font-size: small;
+    color: $text-color;
+    user-select: none;
+
+    &.hidden {
+        display: none;
+    }
+
+    &.horizontal {
+        flex-direction: row;
+    }
+
+    &.vertical {
+        flex-direction: column;
+    }
+}
+
+/* Double border */
+.box, .popup {
+    position: relative;
+    background-color: $background-color;
+    color: $text-color;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.popup {
+    position: absolute;
+    z-index: 2;
+}
+
+.box, .popup {
+    &::before {
+        content: " ";
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        right: 3px;
+        bottom: 3px;
+        border: 3px solid $text-color;
+        border-radius: 5px;
+        pointer-events: none;
+    }
+
+    &.focus::after {
+        content: " ";
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        border: 1px dotted #fff;
+        border-radius: 5px;
+        pointer-events: none;
+    }
+}
+
+.flex {
+    display: flex;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Viewport.css';
+import './Viewport.scss';
 
 const Viewport = ({ children, ...props }) => (
     <div className="viewport">

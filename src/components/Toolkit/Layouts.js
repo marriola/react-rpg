@@ -3,7 +3,8 @@ import BaseComponent from './BaseComponent';
 import Actions from '../../action-creators';
 import { connect } from '../../decorators';
 import { joinNonEmpty } from '../../util.js';
-import './Layouts.css';
+
+import './Layouts.scss';
 
 @connect('ui')
 export default class Layout extends BaseComponent {

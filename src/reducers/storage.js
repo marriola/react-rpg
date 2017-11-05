@@ -14,13 +14,23 @@ export default createReducer({
         },
 
         storeProp: function(state, action) {
-            return {
-                ...state,
-                [action.key]: {
-                    ...state[action.key],
-                    [action.prop]: action.value
+            if (action.propValues) {
+                let newState = { ...state };
+
+                for (let pv of action.propValues) {
+                    newState[pv.prop] = pv.value;
                 }
-            };
+
+                return newState;
+            } else {
+                return {
+                    ...state,
+                    [action.key]: {
+                        ...state[action.key],
+                        [action.prop]: action.value
+                    }
+                };
+            }
         }
     }
 });
