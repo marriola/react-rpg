@@ -1,12 +1,14 @@
+@import '../Colors.scss';
+
 input[type='text'],
 input[type='number'],
 textarea {
     font-family: ChicagoFLF;
     font-size: small;
-    border: 2px solid white;
+    border: 2px solid $border-color;
     border-radius: 5px;
     background: transparent;
-    color: white;
+    color: $text-color;
 
     &:focus {
         outline: none;
